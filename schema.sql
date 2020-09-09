@@ -1,22 +1,22 @@
-DROP TABLE "Netflix" CASCADE;
-DROP TABLE "Disney" CASCADE;
-DROP TABLE "Reviews" CASCADE;
+DROP TABLE "netflix" CASCADE;
+DROP TABLE "disney" CASCADE;
+DROP TABLE "reviews" CASCADE;
 
-CREATE TABLE "Reviews" (
-    "Title" varchar,
-    "Year" int,
-    "Age" varchar,
-    "IMDb" varchar,
-    "Rotten Tomatoes" varchar,
-    "Netflix" int,
-    "Hulu" int,
-    "Prime Video" int,
-    "Disney+" int,
+CREATE TABLE "reviews" (
+    "title" varchar,
+    "year" int,
+    "age" varchar,
+    "imdb" float,
+    "rotten tomatoes" varchar,
+    "netflix" int,
+    "hulu" int,
+    "prime video" int,
+    "disney+" int,
     "type" int,
-	PRIMARY KEY ("Title", "Year")
+	PRIMARY KEY ("title", "year")
 );
 
-CREATE TABLE "Netflix" (
+CREATE TABLE "netflix" (
     "show_id" int,
     "type" varchar,
     "title" varchar,
@@ -24,7 +24,7 @@ CREATE TABLE "Netflix" (
     "cast" varchar,
     "country" varchar,
     "date_added" varchar,
-    "release_year" varchar,
+    "release_year" int,
     "rating" varchar,
     "duration" varchar,
     "listed_in" varchar,
@@ -32,13 +32,13 @@ CREATE TABLE "Netflix" (
 	PRIMARY KEY ("title", "release_year", "listed_in")
 );
 
-CREATE TABLE "Disney" (
+CREATE TABLE "disney" (
     "imdb_id" varchar,
     "title" varchar,
     "plot" varchar,
     "type" varchar,
     "rated" varchar,
-    "year" varchar,
+    "year" int,
     "released_at" varchar,
     "added_at" varchar,
     "runtime" varchar,
@@ -52,6 +52,9 @@ CREATE TABLE "Disney" (
     "metascore" varchar,
     "imdb_rating" varchar,
     "imdb_votes" varchar,
-	PRIMARY KEY ("title", "year")
+	PRIMARY KEY ("title", "year", "type")
+
+	
+-- 	Disney.year is varchar because it contains non-numeric characters
 -- 	composite keys needed because some titles have been reproduced at different points in time or were in different categories
 );
